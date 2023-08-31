@@ -1,5 +1,8 @@
-import ItemListContainer from "./Components/ItemListContainer"
+import ItemCount from "./components/ItemCount"
+import ItemListContainer from "./components/ItemListContainer"
 import NavBar from "./Components/NavBar"
+import Item from "./components/Item"
+
 
 const App = () => {
   
@@ -7,7 +10,8 @@ const App = () => {
     <>
       <NavBar/> 
       <ItemListContainer greeting= {"Bienvenidos a bosque urbano MADERA PLASTICA"} /> 
-    </>
+      </> 
+    
   )
 }
 
