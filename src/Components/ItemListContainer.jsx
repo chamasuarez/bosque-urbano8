@@ -1,4 +1,5 @@
 import { Flex, Square, AbsoluteCenter } from "@chakra-ui/react";
+import { useEffect } from 'react';
 import React from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
@@ -47,19 +48,22 @@ const ItemListContainer = ({ greeting }) => {
     }
   });
 
-  mostrarProductos
+  useEffect(()=>{
+    mostrarProductos
     .then((resultado) => {
-      console.log(resultado);
+    console.log(resultado);
     })
-
+    
     .catch((inexistente) => {
-      console.log(inexistente);
+    console.log(inexistente);
     });
+    },[]) 
 
   return (
     <>
       <Flex color="black">
         <Square size="200px">
+
           <AbsoluteCenter>{greeting}</AbsoluteCenter>
         </Square>
       </Flex>
@@ -68,14 +72,5 @@ const ItemListContainer = ({ greeting }) => {
     </>
   );
 };
-
-async function fetchingProducto () {
-  try {
-    const productosFetched = await mostrarProductos ();
-    console.log (productosFetched);
-  }
-};
-
-fetchingProducto ();
 
 export default ItemListContainer;
