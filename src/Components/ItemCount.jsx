@@ -1,16 +1,16 @@
 import { useState } from "react";
-// import {
-//   NumberInput,
-//   NumberInputField,
-//   NumberInputStepper,
-//   NumberIncrementStepper,
-//   NumberDecrementStepper,
-//   Spacer,
-// } from "@chakra-ui/react";
+import {
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  Spacer,
+} from "@chakra-ui/react";
 import React from "react";
 
-const ItemCount = () => {
-  const [contador, SetContador] = useState(0);
+const ItemCount = ({ onAdd, initial }) => {
+  const [contador, SetContador] = useState(initial);
 
   const sumar = () => {
     if (contador < 10) {
@@ -19,19 +19,15 @@ const ItemCount = () => {
   };
 
   const restar = () => {
-    if (contador >= 20) {
+    if (contador > 0) {
       SetContador(contador - 1);
     }
   };
 
-  const onAdd = () => {
-    alert (contador)
-  }  
-
   return (
     <>
       <div className="ItemContador">
-        {/* <NumberInput size="sm" defaultValue={20} min={10}>
+        <NumberInput size="sm" defaultValue={10} min={0}>
           <NumberInputField focusBorderColor="red.200" />
           <NumberInputStepper>
             <NumberIncrementStepper
@@ -45,10 +41,11 @@ const ItemCount = () => {
               children="-"
             />
           </NumberInputStepper>
-        </NumberInput> */}
-        <p>{contador}</p>
+        </NumberInput>
         <button onClick={sumar}>+</button>
         <button onClick={onAdd}>Mostrar cantidad</button>
+        <Spacer />
+        <p>{contador}</p>
         <Spacer />
         <button onClick={restar}>-</button>
         <button onClick={onAdd}>Mostrar cantidad</button>
