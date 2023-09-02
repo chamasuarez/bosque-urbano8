@@ -1,4 +1,4 @@
-let productos = [
+const productos = [
   {
     id: 1,
     nombre: "Banqueta",
@@ -40,7 +40,7 @@ let productos = [
   },
 ];
 
-export const mostrarProductos = new Promise((resolve, reject) => {
+export const getProductos = new Promise((resolve, reject) => {
   if (productos.length > 0) {
     setTimeout(() => {
       resolve(productos);

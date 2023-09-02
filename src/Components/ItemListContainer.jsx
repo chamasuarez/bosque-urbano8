@@ -1,18 +1,16 @@
 import { Flex, Square, AbsoluteCenter } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 import React from "react";
-import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-import { mostrarProductos } from "./asyncmock/data";
+import { getProductos } from "./asyncmock/data";
 
 const ItemListContainer = ({ greeting }) => {
-  const [data, setData]= useState ([])
+  const [productos, setProductos]= useState ([])
   
-
-  useEffect(()=>{
-    mostrarProductos
+    useEffect(()=>{
+    getProductos
     .then((resultado) => {
-    setData(resultado);
+    setProductos(resultado);
     })
     
     .catch((inexistente) => {
@@ -24,12 +22,10 @@ const ItemListContainer = ({ greeting }) => {
     <>
       <Flex color="black">
         <Square size="200px">
-
           <AbsoluteCenter>{greeting}</AbsoluteCenter>
         </Square>
       </Flex>
-      <ItemCount initial={1} onAdd={onAdd}/>
-      <ItemList productos={data} />
+      <ItemList productos={productos} />
     </>
   );
 };

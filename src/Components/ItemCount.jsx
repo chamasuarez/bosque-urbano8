@@ -42,14 +42,13 @@ const ItemCount = ({ onAdd, initial }) => {
             />
           </NumberInputStepper>
         </NumberInput>
-        <button onClick={sumar}>+</button>
-        <button onClick={onAdd}>Mostrar cantidad</button>
-        <Spacer />
         <p>{contador}</p>
         <Spacer />
+        <button onClick={sumar}>+</button>
         <button onClick={restar}>-</button>
-        <button onClick={onAdd}>Mostrar cantidad</button>
-      </div>
+        <Spacer />
+        <button onClick={onAdd}>Comprar</button>
+        </div>
     </>
   );
 };
