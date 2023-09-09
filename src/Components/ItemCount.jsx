@@ -1,54 +1,30 @@
 import { useState } from "react";
-import {
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-  Spacer,
-} from "@chakra-ui/react";
+import { Button, Stack, Box } from "@chakra-ui/react";
 import React from "react";
 
-const ItemCount = ({ onAdd, initial }) => {
-  const [contador, SetContador] = useState(initial);
-
-  const sumar = () => {
-    if (contador < 10) {
-      SetContador(contador + 1);
-    }
-  };
-
-  const restar = () => {
-    if (contador > 0) {
-      SetContador(contador - 1);
-    }
-  };
+const ItemCount = () => {
+  const [contador, setContador] = useState(0);
 
   return (
     <>
-      <div className="ItemContador">
-        <NumberInput size="sm" defaultValue={10} min={0}>
-          <NumberInputField focusBorderColor="red.200" />
-          <NumberInputStepper>
-            <NumberIncrementStepper
-              bg="green.200"
-              _active={{ bg: "green.300" }}
-              children="+"
-            />
-            <NumberDecrementStepper
-              bg="red"
-              _active={{ bg: "red" }}
-              children="-"
-            />
-          </NumberInputStepper>
-        </NumberInput>
-        <p>{contador}</p>
-        <Spacer />
-        <button onClick={sumar}>+</button>
-        <button onClick={restar}>-</button>
-        <Spacer />
-        <button onClick={onAdd}>Comprar</button>
-        </div>
+      <Stack direction={["column", "row"]} spacing="24px">
+        <Box W="40px" h="40px">
+          <Button size="md" bg="orange" onClick={() => setContador(contador + 1)}>
+            +
+          </Button>
+        </Box>
+        <Box W="40px" h="40px">
+          <p>{contador}</p>
+        </Box>
+        <Box W="40px" h="40px">
+          <Button size="md" bg="orange"  onClick={() => setContador(contador - 1)}>
+            -
+          </Button>
+          <Button colorScheme="green" size="md" align="center">
+            Comprar
+          </Button>
+        </Box>
+      </Stack>
     </>
   );
 };
