@@ -13,10 +13,10 @@ const ItemDetail = ({ productos }) => {
       {filteredProducts.map((p) => {
         return (
           <div key={p.id}>
-            <h3>Detalle de: {p.nombre}</h3>
+            <h3>Detalle del producto: {p.nombre}</h3>
             <img src={p.imagen} alt={p.nombre} />
             <p>{p.descripcion}</p>
-            <p>{p.categoria}</p>
+            <p>Categoria: {p.categoria}</p>
             <ItemCount />
           </div>
         );
