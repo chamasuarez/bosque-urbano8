@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Select, Stack, Spacer } from "@chakra-ui/react";
 import { collection, addDoc, getFirestore} from `firebase/firestore`
-import CartProvider from "./CartProvider";
+import {CartContext} from "./CartProvider";
 
 const Form = () => {
-  const {cart} = useContext (CartProvider)
+  const {cart} = useContext (CartContext)
 
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");

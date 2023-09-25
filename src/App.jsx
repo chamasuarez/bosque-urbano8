@@ -4,11 +4,13 @@ import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 import Cart from "./components/Cart";
 import Form from "./components/Form";
-import CartProvider from "./assets/CartProvider";
+import CartProvider from "./components/CartProvider";
 
 const App = () => {
   return (
     <>
+   <CartProvider>
+  
       <BrowserRouter>
         <NavBar />
 
@@ -28,10 +30,8 @@ const App = () => {
           <Route exact path="/form" element={<Form />} />
         </Routes>
       </BrowserRouter>
-
-      <CartProvider>
-        <Cart />
       </CartProvider>
+      
     </>
   );
 };

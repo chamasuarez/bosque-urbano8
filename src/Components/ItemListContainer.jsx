@@ -1,41 +1,34 @@
-import { useParams } from "react-router-dom";
-import { Flex, Square, AbsoluteCenter } from "@chakra-ui/react";
+import { useState, useEffect } from "react-router-dom";
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ItemListContainer = () => {
   
-  const {categoria}= useParams ()
-  console.log(categoria);
+  const { categoria } = useParams();
 
-  const [products, setProducts] = useState ([])
-  console.log (products)
+  const [products, setProducts] = useState([]);
+  console.log(products);
 
-useEffect (( ) => {
+  useEffect(() => {
+    const db = getFirestore();
 
-  const db = getFirestore ()
-
-  const itemsCollection = collection (db, `${categoria}`)
-  getDocs(itemsCollection).then(( snapshot ) => {
-    const docs = snapshot.docs.map ((doc) => 
-    ({
-          ...doc.data (), id: doc.id
-    }))
-    setProducts (docs)
-})
-  }, []) 
-  const filteredProducts = products.filter(
-    (producto) => producto.categoria === categoria
-  );
+    const itemsCollection = collection(db, `bosque`);
+    getDocs(itemsCollection)
+      .then((snapshot) => {
+        console.log(snapshot);
+        const docs = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setProducts(docs);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <>
-      {
-      categoria ? (<ItemList productos={filteredProducts} />
-      ) : (
-        <ItemList products={products} />
-      )
-      }
-      
+      <ItemList productos={products} />
     </>
   );
 };
