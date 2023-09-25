@@ -9,18 +9,24 @@ import CartProvider from "./assets/CartProvider";
 const App = () => {
   return (
     <>
-       <BrowserRouter>
-       <NavBar />
+      <BrowserRouter>
+        <NavBar />
 
-      <Routes> 
-      <ItemListContainer greeting={"Bienvenidos a bosque urbano MADERA PLASTICA"} />
+        <Routes>
+          <ItemListContainer
+            greeting={"Bienvenidos a bosque urbano MADERA PLASTICA"}
+          />
 
-      <Route exact path="/cart" element={<Cart />}/>
-         <Route exact path="/" element={<ItemListContainer />} />
-         <Route exact path="/categoria/:categoria" element={<ItemListContainer />} />
-         <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-         <Route exact path= "/checkout" element={<Form/>}/> 
-       </Routes>
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/" element={<ItemListContainer />} />
+          <Route
+            exact
+            path="/categoria/:categoria"
+            element={<ItemListContainer />}
+          />
+          <Route exact path="/item/:id" element={<ItemDetailContainer />} />
+          <Route exact path="/form" element={<Form />} />
+        </Routes>
       </BrowserRouter>
 
       <CartProvider>
