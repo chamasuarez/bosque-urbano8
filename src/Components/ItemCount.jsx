@@ -5,6 +5,11 @@ import React from "react";
 const ItemCount = () => {
   const [contador, setContador] = useState(0);
 
+  if (contador  <  0 )
+
+  if (contador  >=  10)  
+
+
   return (
     <>
       <Stack direction={["column", "row"]} spacing="24px">
