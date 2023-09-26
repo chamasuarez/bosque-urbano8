@@ -2,7 +2,8 @@ import React from "react";
 import Form from "./Form";
 import { Button } from "@chakra-ui/react";
 import {Link} from "react-router-dom"
-import { CartContext } from "./CartProvider";
+import { CartContext } from "./context/Cart";
+import { useContext } from "react";
 
 const Cart = () => {
   

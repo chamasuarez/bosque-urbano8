@@ -5,7 +5,6 @@ import {
   Image,
   Stack,
   Heading,
-  Text,
   Divider,
   ButtonGroup,
   Button,
