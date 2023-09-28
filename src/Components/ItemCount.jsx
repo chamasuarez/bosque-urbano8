@@ -5,16 +5,11 @@ import React from "react";
 const ItemCount = () => {
   const [contador, setContador] = useState(0);
 
-  if (contador  <  0 )
-
-  if (contador  >=  10)  
-
-
   return (
     <>
       <Stack direction={["column", "row"]} spacing="24px">
         <Box W="40px" h="40px">
-          <Button size="md" bg="orange" onClick={() => setContador(contador + 1)}>
+          <Button  disable={contador  >=  10} size="md" bg="orange" onClick={() => setContador(contador + 1)}>
             +
           </Button>
         </Box>
@@ -22,7 +17,7 @@ const ItemCount = () => {
           <p>{contador}</p>
         </Box>
         <Box W="40px" h="40px">
-          <Button size="md" bg="orange"  onClick={() => setContador(contador - 1)}>
+          <Button disable={contador  <  0} size="md" bg="orange"  onClick={() => setContador(contador - 1)}>
             -
           </Button>
           <Button colorScheme="green" size="md" align="center">

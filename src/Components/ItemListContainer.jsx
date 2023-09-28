@@ -13,7 +13,7 @@ const ItemListContainer = () => {
   useEffect(() => {
     const db = getFirestore();
 
-    const itemsCollection = collection(db, `bosque`);
+    const itemsCollection = collection(db, "productos");
     getDocs(itemsCollection)
       .then((snapshot) => {
         console.log(snapshot);

@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Select, Stack, Spacer } from "@chakra-ui/react";
-import { collection, addDoc, getFirestore} from "firebase/firestore"
-import {CartContext} from "./context/CartContext";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { CartContext } from "../context/CartContext";
 
 const Form = () => {
-  const {cart} = useContext (CartContext)
+  const { cart } = useContext(CartContext);
 
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [orderId, setOrderId] = useState("");
-  
-  const db = getFirestore ()
+
+  const db = getFirestore();
 
   const handleSubmit = (e) => {
     e.preventDefaul();
@@ -21,18 +21,19 @@ const Form = () => {
       ? alert("campo email vacio")
       : alert(`Registrado con el email, ${email}`);
 
-      addDoc(ordersCollection, order).then (({ id }) => setOrderId (id)) 
-  
+    addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
   };
 
   const order = {
-    buyer: {nombre, email}
-  }
-  items: cart.map (({id, nombre, precio}) => ({
-    id, nombre, precio
-  }))
+    buyer: { nombre, email },
+  };
+  items: cart.map(({ id, nombre, precio }) => ({
+    id,
+    nombre,
+    precio,
+  }));
 
-  const ordersCollection= collection (db,"orden" )
+  const ordersCollection = collection(db, "orden");
 
   return (
     <>

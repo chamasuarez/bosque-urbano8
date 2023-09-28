@@ -5,13 +5,13 @@ import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState([null]);
   console.log(product);
 
   useEffect(() => {
     const db = getFirestore();
 
-    const oneItem = doc(db, "Bosque", `${id}`);
+    const oneItem = doc(db, "productos", `${id}`);
     getDoc(oneItem).then((snapshot) => {
       if (snapshot.exists()) {
         const docs = snapshot.data();

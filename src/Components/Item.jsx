@@ -18,24 +18,37 @@ const Item = ({ producto }) => {
 
   return (
     <>
-      <div className="Imagenes">
+      <div
+        className="margin-top-70"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          size:"xl"
+        }}
+      >
         <Flex>
-          <Card maxW="sm">
+          <Card maxW="xl">
             <CardBody>
-              <Image
-                src={producto.imagen}
-                alt="Green double couch with wooden legs"
-                borderRadius="lg"
-              />
-              <Stack mt="6" spacing="3">
-                <Heading size="md">{producto.nombre} </Heading>
+              <Image src={producto.imagen} alt="" borderRadius="xl" />
+              <Stack mt="10" spacing="3">
+                <Heading >{producto.nombre} </Heading>
+              </Stack>
+              <Stack mt="10" spacing="3">
+                <Heading>$ {producto.precio} </Heading>
               </Stack>
             </CardBody>
             <Divider />
             <CardFooter>
-              <ButtonGroup spacing="2">
-                <Button variant="solid" colorScheme="blue">
-                  <Link to={`/item/ ${producto.id}`}>Detalle</Link>
+              <ButtonGroup spacing="3">
+                <Button
+                  variant="solid"
+                  colorScheme="blue"
+                  textAlign="center"
+                  heigth="200px"
+                >
+                  <Link to={`/item/${producto.id}`}>Detalle</Link>
                 </Button>
               </ButtonGroup>
             </CardFooter>

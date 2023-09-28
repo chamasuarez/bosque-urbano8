@@ -3,7 +3,7 @@ import React from "react";
 
 const ItemList = ({productos}) => {
   return (
-    <div>
+    <div >
       {productos.map((p) => {
         return (
         <>

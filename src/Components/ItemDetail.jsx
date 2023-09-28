@@ -2,27 +2,31 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ productos }) => {
+const ItemDetail = ({ product }) => {
 
   const { id } = useParams ()
   
-  const filteredProducts = productos.filter((producto) => producto.id == id);
-
   return (
-    <div className="d-flex flex-colum align-items-center">
-      {filteredProducts.map((p) => {
-        return (
-          <div key={p.id}>
-            <h3>Detalle del producto: {p.nombre}</h3>
-            <img src={p.imagen} alt={p.nombre} />
-            <p>{p.descripcion}</p>
-            <p>Categoria: {p.categoria}</p>
+    <div className="margin-top-70"
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      textAlign: "center",
+      size:"xl"
+    }}>
+          <div >
+            <h3>Detalle del producto: {product.nombre}</h3>
+            <img src={product.imagen} alt={product.nombre} />
+            <p>{product.descripcion}</p>
+            <p>Categoria: {product.categoria}</p>
             <ItemCount />
           </div>
-        );
-      })}
+        
+      
     </div>
   );
 };
+
 
 export default React.memo(ItemDetail);

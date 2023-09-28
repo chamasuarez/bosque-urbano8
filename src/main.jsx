@@ -10,12 +10,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDxWwcX5pXoZB0toXsFl5SHWj-WpiKXniM",
-  authDomain: "bosque-urbano-5c8d5.firebaseapp.com",
-  projectId: "bosque-urbano-5c8d5",
-  storageBucket: "bosque-urbano-5c8d5.appspot.com",
-  messagingSenderId: "787570845002",
-  appId: "1:787570845002:web:43c6a6091f12d0c3944db3"
+  apiKey: "AIzaSyBb_drDeFyXU_MJ0UAeKz9z-uV5PB-D0xU",
+  authDomain: "new-bosque.firebaseapp.com",
+  projectId: "new-bosque",
+  storageBucket: "new-bosque.appspot.com",
+  messagingSenderId: "464420028707",
+  appId: "1:464420028707:web:9577ea650f7002e7290c96"
 };
 
 // Initialize Firebase
