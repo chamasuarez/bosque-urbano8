@@ -1,10 +1,13 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+} from "firebase/firestore";
 
 const ItemListContainer = () => {
-  
   const { categoria } = useParams();
 
   const [products, setProducts] = useState([]);
@@ -12,7 +15,6 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const db = getFirestore();
-
     const itemsCollection = collection(db, "productos");
     getDocs(itemsCollection)
       .then((snapshot) => {
@@ -26,9 +28,17 @@ const ItemListContainer = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  const productosFiltrados = products.filter(
+    (producto) => producto.categoria === categoria
+  );
+
   return (
     <>
-      <ItemList productos={products} />
+      {categoria ? (
+        <ItemList productos={productosFiltrados} />
+      ) : (
+        <ItemList productos={products} />
+      )}
     </>
   );
 };

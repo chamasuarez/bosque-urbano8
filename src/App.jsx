@@ -25,7 +25,7 @@ const App = () => {
              element={<ItemListContainer />}
            />
            <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-           <Route exact path="/form" element={<Form />} />
+           <Route exact path="/chechout" element={<Form/>} />
          </Routes>
        </BrowserRouter>
        </CartProvider>
