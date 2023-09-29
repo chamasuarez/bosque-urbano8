@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Select, Stack, Spacer } from "@chakra-ui/react";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "./CartContext";
 
 const Form = () => {
   const { cart } = useContext(CartContext);

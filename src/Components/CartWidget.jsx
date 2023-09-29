@@ -1,6 +1,6 @@
 import { Divider, Flex, Box, Badge } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "./CartContext";
 
 const CartWidget = () => {
   const { cartQuantity } = useContext(CartContext);

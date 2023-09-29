@@ -9,7 +9,7 @@ const ItemCount = () => {
     <>
       <Stack direction={["column", "row"]} spacing="24px">
         <Box W="40px" h="40px">
-          <Button  disable={contador >= 10} size="md" bg="orange" onClick={() => setContador(contador + 1)}>
+          <Button isDisabled ={contador >= 10} size="md" bg="orange" onClick={() => setContador(contador + 1)}>
             +
           </Button>
         </Box>
@@ -17,7 +17,7 @@ const ItemCount = () => {
           <p>{contador}</p>
         </Box>
         <Box W="40px" h="40px">
-          <Button disable={contador < 0} size="md" bg="orange"  onClick={() => setContador(contador - 1)}>
+          <Button isDisabled={contador > 0} size="md" bg="orange"  onClick={() => setContador(contador - 1)}>
             -
           </Button>
           <Button colorScheme="green" size="md" align="center">

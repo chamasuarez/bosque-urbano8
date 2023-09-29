@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useParams } from "react-router-dom";
-
+import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -21,27 +21,21 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div>
+    <div
+      className="margin-top-70"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        size: "xl",
+      }}
+    >
       <h1>PRODUCTO</h1>
-      {
-        <div
-          className="margin-top-70"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-            size: "xl",
-          }}
-        >
-          <h2>Producto {product.nombre} </h2>
-          <img src={product.imagen} alt="" />
-          <h3> Descripcion: {product.descripcion} </h3>
-          <p >Precio: $ {product.precio} </p>
-        </div>
-      }
+      <ItemDetail product={product}></ItemDetail>
     </div>
-  );z
+  );
+  ;
 };
 
 export default ItemDetailContainer;

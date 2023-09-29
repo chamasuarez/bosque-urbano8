@@ -1,10 +1,16 @@
 import { useParams } from "react-router-dom";
 import React from "react";
 import ItemCount from "./ItemCount";
+import {CartContext} from "./CartContext"
 
 const ItemDetail = ({ product }) => {
 
   const { id } = useParams ()
+  const {addItem} = useContext (CartContext);
+
+  const onAdd = (quantity) => {
+    addItem (product, quantity)
+   }
   
   return (
     <div className="margin-top-70"
@@ -20,7 +26,8 @@ const ItemDetail = ({ product }) => {
             <img src={product.imagen} alt={product.nombre} />
             <p>{product.descripcion}</p>
             <p>Categoria: {product.categoria}</p>
-            <ItemCount />
+            <h3>Precio: $ <span>{product.precio} </span></h3>
+            <ItemCount onAdd={onAdd} />
           </div>
         
       
