@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import React from "react";
+import React, { useContext} from "react";
 import ItemCount from "./ItemCount";
 import {CartContext} from "./CartContext"
 

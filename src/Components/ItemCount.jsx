@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Button, Stack, Box } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom"
 
-const ItemCount = () => {
+const ItemCount = ({onAdd}) => {
   const [contador, setContador] = useState(0);
 
   return (
@@ -20,7 +21,7 @@ const ItemCount = () => {
           <Button isDisabled={contador > 0} size="md" bg="orange"  onClick={() => setContador(contador - 1)}>
             -
           </Button>
-          <Button colorScheme="green" size="md" align="center">
+          <Button onClick= {() => onAdd(contador)} colorScheme="green" size="md" align="center">
             Comprar
           </Button>
         </Box>

@@ -55,20 +55,20 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.map((product) => (
-                <tr key={item.id}>
+              {cart.map((producto) => (
+                <tr key={producto.id}>
                   <td>
-                    <img src={item.imagen} alt={item.nombre} width={80} />
+                    <img src={producto.imagen} alt={producto.nombre} width={80} />
                   </td>
-                  <td className="align-middle">{item.nombre}</td>
-                  <td className="align-middle text-end">{item.quantity}</td>
+                  <td className="align-middle">{producto.nombre}</td>
+                  <td className="align-middle text-end">{producto.quantity}</td>
                   <td className="align-middle text-end">
-                    USD: {item.quantity * item.precio}
+                    $: {producto.quantity * producto.precio}
                   </td>
                   <td className="align-middle text-end">
                     <Link
                       onClick={() => {
-                        deleteItem(item.id);
+                        deleteItem(producto.id);
                       }}
                       title={"Eliminar Producto"}
                     >
