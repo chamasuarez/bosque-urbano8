@@ -10,7 +10,7 @@ const ItemDetail = ({ product }) => {
 
   const onAdd = (quantity) => {
     addItem (product, quantity)
-   }
+  }
   
   return (
     <div className="margin-top-70"
@@ -19,7 +19,7 @@ const ItemDetail = ({ product }) => {
       justifyContent: "center",
       alignItems: "center",
       textAlign: "center",
-      size:"xl"
+      size:"xl",
     }}>
           <div >
             <h3>Detalle del producto: {product.nombre}</h3>

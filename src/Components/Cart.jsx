@@ -1,8 +1,8 @@
 import React from "react";
-import Form from "./Form";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { useContext } from "react";
+import { Button, Spacer } from "@chakra-ui/react";
 
 const Cart = () => {
   const { cart, clear, total, deleteItem, cartQuantity } =
@@ -14,10 +14,15 @@ const Cart = () => {
         <div className="row my-5">
           <div className="col-md-12 text-center">
             <div className="alert alert-danger" role="alert">
-              No se encontraron Productos en el Carrito!
+              <Button textAlign="center" p="4" bg="orange">
+                No se encontraron Productos en el Carrito!
+              </Button>
+              <Spacer />
             </div>
             <Link to={"/"} className="btn btn-warning">
-              Regresar a la tienda
+              <Button textAlign="center" p="4" bg="orange">
+                Regresar a la tienda
+              </Button>
             </Link>
           </div>
         </div>
@@ -38,7 +43,9 @@ const Cart = () => {
                     className="btn btn-warning"
                     title={"Vaciar Carrito"}
                   >
-                    Vaciar Carrito
+                    <Button textAlign="center" p="4" bg="orange">
+                      Vaciar Carrito
+                    </Button>
                   </Link>
                 </th>
               </tr>
@@ -58,7 +65,11 @@ const Cart = () => {
               {cart.map((producto) => (
                 <tr key={producto.id}>
                   <td>
-                    <img src={producto.imagen} alt={producto.nombre} width={80} />
+                    <img
+                      src={producto.imagen}
+                      alt={producto.nombre}
+                      width={80}
+                    />
                   </td>
                   <td className="align-middle">{producto.nombre}</td>
                   <td className="align-middle text-end">{producto.quantity}</td>
@@ -72,11 +83,11 @@ const Cart = () => {
                       }}
                       title={"Eliminar Producto"}
                     >
-                      <img
-                        src={"/images/icons8-trash-can.svg"}
-                        alt={"Eliminar Producto"}
-                        width={32}
-                      />
+                      <span textAlign="center" className="material-symbols-outlined">delete</span>
+                      <Spacer />
+                      <Button textAlign="center" p="4" bg="orange" >
+                      <p>{"Eliminar Producto"}</p>
+                      </Button>
                     </Link>
                   </td>
                 </tr>
@@ -91,7 +102,9 @@ const Cart = () => {
                 </td>
                 <td className="text-end">
                   <Link to={"/checkout"} className="btn btn-warning">
+                  <Button textAlign="center" p="4" bg="orange">
                     Finalizar Compra
+                  </Button>
                   </Link>
                 </td>
               </tr>
@@ -102,41 +115,5 @@ const Cart = () => {
     </div>
   );
 };
-
-//   return (
-//     <div
-//       className="margin-top-70"
-//       style={{
-//         display: "flex",
-//         justifyContent: "center",
-//         alignItems: "center",
-//         textAlign: "center",
-//         size: "xl",
-//       }}
-//     >(
-//       <Button color="green">
-//         <Link to={`/`}>Regresar a la tienda</Link>
-//       </Button>
-//     ):
-//     <Button color="green">
-//         <Link onclick={clear} to={`/`}>Regresar </Link>
-//       </Button>
-//     )
-
-//     return ()
-//       {" "}
-//       <Button color="green">
-//         <Link to={`/`}>Mi carrito</Link>
-//       </Button>
-//       {cart.length > 0 ? (
-//         <Form />
-//       ) : (
-//         <Button color="green">
-//           <Link to={`/`}>Regresar a la tienda</Link>
-//         </Button>
-//       )}
-//     </div>
-//   );
-// };
 
 export default Cart;

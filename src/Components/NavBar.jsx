@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import logo from '../assets/logo.jpg';
 
 const NavBar = () => {
   return (
@@ -19,6 +20,7 @@ const NavBar = () => {
         <Box p="4" bg="green.400">
         < Link to={"/"}> 
           <h2>Bosque urbano</h2>
+          <img src={logo} className="logo" alt="Bosque urbano" width={60} />
           </Link>
         </Box>
         <Spacer />

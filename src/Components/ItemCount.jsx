@@ -21,9 +21,11 @@ const ItemCount = ({onAdd}) => {
           <Button isDisabled={contador > 0} size="md" bg="orange"  onClick={() => setContador(contador - 1)}>
             -
           </Button>
+          <Link to={`/`} >
           <Button onClick= {() => onAdd(contador)} colorScheme="green" size="md" align="center">
             Comprar
           </Button>
+          </Link>
         </Box>
       </Stack>
     </>
