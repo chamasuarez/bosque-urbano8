@@ -73,7 +73,7 @@ const Form = () => {
       </Stack>
       </div>
       <Spacer />
-      <Button>Id de tu compra: $ {orderId}</Button>
+      <h3>Id de tu compra: $ {orderId}</h3>
 
     </>
   );

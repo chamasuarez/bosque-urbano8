@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { useContext } from "react";
-import { Button, Spacer } from "@chakra-ui/react";
+import { Button, Divider, Spacer } from "@chakra-ui/react";
 
 const Cart = () => {
   const { cart, clear, total, deleteItem, cartQuantity } =
@@ -14,13 +14,13 @@ const Cart = () => {
         <div className="row my-5">
           <div className="col-md-12 text-center">
             <div className="alert alert-danger" role="alert">
-              <Button textAlign="center" p="4" bg="orange">
+              <Button textAlign="center" p="4" bg="orange" display="flex">
                 No se encontraron Productos en el Carrito!
               </Button>
-              <Spacer />
+              <Divider />
             </div>
             <Link to={"/"} className="btn btn-warning">
-              <Button textAlign="center" p="4" bg="orange">
+              <Button textAlign="center" p="4" bg="orange" width="60" display="flex" >
                 Regresar a la tienda
               </Button>
             </Link>
@@ -56,7 +56,7 @@ const Cart = () => {
                   Cantidad
                 </th>
                 <th scope="col" className="text-end">
-                  Precio
+                  Precio 
                 </th>
                 <th scope="col">&nbsp;</th>
               </tr>
@@ -68,7 +68,7 @@ const Cart = () => {
                     <img
                       src={producto.imagen}
                       alt={producto.nombre}
-                      width={80}
+                      width={600}
                     />
                   </td>
                   <td className="align-middle">{producto.nombre}</td>
