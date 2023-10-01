@@ -3,6 +3,17 @@ import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { useContext } from "react";
 import { Button, Divider, Spacer } from "@chakra-ui/react";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from "@chakra-ui/react";
 
 const Cart = () => {
   const { cart, clear, total, deleteItem, cartQuantity } =
@@ -20,7 +31,13 @@ const Cart = () => {
               <Divider />
             </div>
             <Link to={"/"} className="btn btn-warning">
-              <Button textAlign="center" p="4" bg="orange" width="60" display="flex" >
+              <Button
+                textAlign="center"
+                p="4"
+                bg="orange"
+                width="60"
+                display="flex"
+              >
                 Regresar a la tienda
               </Button>
             </Link>
@@ -31,89 +48,64 @@ const Cart = () => {
   }
 
   return (
-    <div className="container">
-      <div className="row my-5">
-        <div className="col-md-12">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" colSpan={5} className="text-end">
-                  <Link
-                    onClick={clear}
-                    className="btn btn-warning"
-                    title={"Vaciar Carrito"}
-                  >
-                    <Button textAlign="center" p="4" bg="orange">
-                      Vaciar Carrito
-                    </Button>
-                  </Link>
-                </th>
-              </tr>
-              <tr>
-                <th scope="col">&nbsp;</th>
-                <th scope="col">Producto</th>
-                <th scope="col" className="text-end">
-                  Cantidad
-                </th>
-                <th scope="col" className="text-end">
-                  Precio 
-                </th>
-                <th scope="col">&nbsp;</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cart.map((producto) => (
-                <tr key={producto.id}>
-                  <td>
-                    <img
-                      src={producto.imagen}
-                      alt={producto.nombre}
-                      width={600}
-                    />
-                  </td>
-                  <td className="align-middle">{producto.nombre}</td>
-                  <td className="align-middle text-end">{producto.quantity}</td>
-                  <td className="align-middle text-end">
-                    $: {producto.quantity * producto.precio}
-                  </td>
-                  <td className="align-middle text-end">
-                    <Link
-                      onClick={() => {
-                        deleteItem(producto.id);
-                      }}
-                      title={"Eliminar Producto"}
-                    >
-                      <span textAlign="center" className="material-symbols-outlined">delete</span>
-                      <Spacer />
-                      <Button textAlign="center" p="4" bg="orange" >
-                      <p>{"Eliminar Producto"}</p>
-                      </Button>
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-              <tr>
-                <td colSpan={2}>&nbsp;</td>
-                <td className="text-end">
-                  <b>Total a Pagar</b>
-                </td>
-                <td className="text-end">
-                  <b>$: {cartQuantity}</b>
-                </td>
-                <td className="text-end">
-                  <Link to={"/checkout"} className="btn btn-warning">
-                  <Button textAlign="center" p="4" bg="orange">
-                    Finalizar Compra
-                  </Button>
-                  </Link>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <TableContainer>
+      <Table variant="simple"  size='md' width={300}>
+        <TableCaption>
+          <Link
+            onClick={clear}
+            className="btn btn-warning"
+            title={"Vaciar Carrito"}
+          >
+            <Button textAlign="center" p="4" bg="orange">
+              Vaciar Carrito{" "}
+            </Button>
+          </Link>
+          <Divider/>
+          <Link
+            onClick={() => {
+              deleteItem(producto.id);
+            }}
+            title={"Eliminar Producto"}
+          >
+            <span textAlign="center" className="material-symbols-outlined">
+              delete
+            </span>
+            <Spacer />
+            <Button textAlign="center" p="4" bg="orange">
+              <p>{"Eliminar Producto"}</p>
+            </Button>
+          </Link>
+          <Divider/>
+          <Link to={"/checkout"} className="btn btn-warning">
+            <Button textAlign="center" p="4" bg="orange">
+              Finalizar Compra
+            </Button>
+          </Link>{" "}
+        </TableCaption>
+        <Thead> 
+          <Tr>
+            <Th>Producto</Th>
+            <Th>Cantidad</Th>
+            <Th isNumeric>Precio</Th>
+            <Th isNumeric>Total a pagar</Th>
+          </Tr>
+        </Thead>
+        <Tbody >
+          {cart.map((producto) => (
+            <tr key={producto.id}>
+              <td className="align-middle">{producto.nombre}</td>
+              <td className="align-middle text-end">{producto.quantity}</td>
+              <td className="align-middle text-end">$ {producto.precio}</td>
+              <td className="align-middle text-end">
+              $ {producto.quantity * producto.precio}
+              </td>
+            </tr>
+          ))}
+        </Tbody>
+      </Table>
+    </TableContainer>
   );
 };
+
 
 export default Cart;
